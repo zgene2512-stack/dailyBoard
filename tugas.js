@@ -182,29 +182,34 @@ export function toDoList() {
                 }
             });
 
-            const hapusBtn = document.createElement("button");
-            hapusBtn.className = "hapus-tugas";
-            hapusBtn.textContent = "Hapus";
-            hapusBtn.addEventListener("click", () => hapusTugas(listTugas.id));
+            const spanHapus = document.createElement("span");
+            spanHapus.className = "hapus-tugas";
+            spanHapus.textContent = "\u00d7";
+
+            spanHapus.addEventListener("click", () => hapusTugas(listTugas.id))
 
             li.appendChild(spanNama);
-            li.appendChild(hapusBtn);
+            li.appendChild(spanHapus);
             list.appendChild(li);
 
             // Drag and Drop
             li.setAttribute("draggable", true);
             li.addEventListener("dragstart", () => {
                 wadahPindah = listTugas.id; // Simpan ID item yang di-drag
+                li.classList.add("move")
             });
         });
 
         list.addEventListener("dragover", (e) => e.preventDefault());
         list.addEventListener("drop", (e) => {
             e.preventDefault();
+            
             const targetLi = e.target.closest("li");
             if (!targetLi) return;
 
             const targetId = Number(targetLi.dataset.id);
+            targetLi.classList.remove("move")
+
 
             if (wadahPindah && wadahPindah !== targetId) {
                 // FIX 3: Tukar posisi item di dalam array daftarTugas
