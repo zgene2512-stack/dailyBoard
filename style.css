@@ -1,3 +1,14 @@
+@keyframes muncul{
+    from{
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 *{
     box-sizing: border-box;
     scroll-behavior: smooth;
@@ -157,6 +168,7 @@ body{
     padding: 10px;
     border-radius: 9px;
     border: 3px solid gray;
+    animation: 3s muncul forwards;
     position: relative;
 
     transition: 0.3s;
