@@ -31,7 +31,7 @@ export function toDoList() {
     ];
 
     // FIX 1: Cari ID tertinggi biar ID item baru gak bakal bentrok
-    let nextId = daftarTugas.length;
+    let nextId = Date.now();
     let wadahPindah = null;
 
     // Elemen DOM
@@ -184,7 +184,6 @@ export function toDoList() {
             const spanHapus = document.createElement("span");
             spanHapus.className = "hapus-tugas";
             spanHapus.textContent = "\u00d7";
-
             spanHapus.addEventListener("click", () => hapusTugas(listTugas.id))
 
             li.appendChild(spanNama);
@@ -194,7 +193,7 @@ export function toDoList() {
             // Drag and Drop
             li.setAttribute("draggable", true);
             li.addEventListener("dragstart", () => {
-                wadahPindah = listTugas.id; // Simpan ID item yang di-drag
+                wadahPindah = listTugas.id;
                 li.classList.add("move")
             });
         });
@@ -211,7 +210,6 @@ export function toDoList() {
 
 
             if (wadahPindah && wadahPindah !== targetId) {
-                // FIX 3: Tukar posisi item di dalam array daftarTugas
                 const idxAsal = daftarTugas.findIndex(t => t.id === wadahPindah);
                 const idxTujuan = daftarTugas.findIndex(t => t.id === targetId);
 
@@ -219,14 +217,12 @@ export function toDoList() {
                 daftarTugas.splice(idxTujuan, 0, itemPindah);
 
                 simpanKeStorage(daftarTugas);
-                renderTugas(filter.value); // Render ulang urutan terbaru
+                renderTugas(filter.value);
             }
         });
 
         daftar.appendChild(list);
     }
-
-    // Render Awal
     renderTugas();
     return tugas;
 }

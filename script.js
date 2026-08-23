@@ -2,21 +2,21 @@
 const kepala = document.getElementById("kepala");
 kepala.className = "kepala";
 
-
-
 // Tema
-const textMode = [`aset/Sun.png`, `aset/Moon.png`];
+const textMode = [`aset/Moon.png`, `aset/Sun.png`];
 let mode = 0;
-const bgMode = ["black", "gray"];
+const bgMode = ["white", "black"];
 const toggleBtn = document.createElement("button");
 toggleBtn.className = "toggle-tema";
 const gambar = document.createElement("img");
+
 gambar.src = textMode[mode];
 gambar.className = "gambar-toggle";
 toggleBtn.appendChild(gambar);
-
+toggleBtn.style.background = bgMode[mode];
 toggleBtn.addEventListener("click", () => {
     gambar.src = textMode[(mode + 1) % textMode.length];
+    toggleBtn.style.background = bgMode[(mode + 1) % bgMode.length]
     mode++;
     document.body.classList.toggle("dark-mode");
     const modeAktif = document.body.classList.contains("dark-mode");
@@ -29,6 +29,7 @@ window.addEventListener("DOMContentLoaded", () => {
         document.body.classList.add("dark-mode");
         mode = 1;
         gambar.src= textMode[mode];
+        toggleBtn.style.background = bgMode[mode];
     }
 });
 
@@ -64,19 +65,3 @@ layar3.appendChild(apkWidgetCuaca);
 layar4.appendChild(catatan);
 layar2.appendChild(layar3)
 layar2.appendChild(layar4);
-
-
-// // Muat semua
-// const status = document.createElement("p");
-// app.appendChild(status);
-
-// async function muatSemuaWidget() {
-//     status.textContent = "Memuat data...";
-
-//     await ambilKutipan();
-
-//     status.textContent = "Data berhasil dimuat";
-// }
-
-// window.addEventListener("DOMContentLoaded", muatSemuaWidget);
-

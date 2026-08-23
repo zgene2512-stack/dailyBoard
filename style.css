@@ -5,7 +5,8 @@
 }
 
 body{
-    background: url("aset/");
+    background: white;
+    transition: 0.3s;
 }
 
 /* Header */
@@ -21,7 +22,7 @@ body{
 .Judul{
     text-transform: uppercase;
     font-weight: 900;
-    font-size: 3rem;
+    font-size: 4rem;
     color: #0F172A;
 }
 
@@ -45,7 +46,7 @@ body{
 
 .judul{
     text-align: center;
-    font-size: 2rem;
+    font-size: 3rem;
     text-decoration: underline;
     margin-bottom: 10px;
     color: #0F172A ;
@@ -113,18 +114,23 @@ body{
     padding: 10px;
     padding-bottom: 15px;
 
-    height: 300px;
+    height: 400px;
     overflow-y: auto;
 }
 
 .list-tugas{
     list-style: none;
     width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .li{
     background: white;
     margin: 5px;
+    width: 60%;
+    height: 13%;
     padding: 10px;
     border-radius: 9px;
     border: 3px solid gray;
@@ -195,7 +201,7 @@ body{
 }
 
 .daftar-catatan {
-    height: 148px;
+    height: 200px;
     overflow-y: auto;
 }
 
@@ -242,6 +248,7 @@ body{
 .kutipan-harian{
     background: rgba(125, 125, 125, 0.3);
     border-left: 3px solid skyblue;
+    width: 100%;
     padding: 5px;
     border-radius: 8px;
 }
@@ -257,7 +264,6 @@ body{
 .section-cuaca{
     width: 50%;
     padding: 10px;
-    text-align: center;
     border: 2px solid darkgray;
 }
 
@@ -265,7 +271,7 @@ body{
     margin: 0 9px 0 3px;
     border-radius: 12px;
     padding: 3px;
-    width: 230px;
+    width: 200px;
     margin-bottom: 10px;
 }
 
@@ -290,19 +296,21 @@ body{
     backdrop-filter: blur(8px);
     border: 1px solid #E2E8F0;
     width: 100%;
+    height: 100%;
+    
     border-radius: 12px;
     text-align: center;
 }
 
 
 .ikon-cuaca{
-    width: 50px;
+    width: 100px;
 }
 
 footer{
     background: black;
     color: white;
-    height: 30px;
+    height: 60px;
 
     display: flex;
     justify-content: center;
@@ -358,4 +366,53 @@ footer{
 
 .dark-mode .info-cuaca{
     background: #1E293B;
+}
+
+@media screen and (max-width: 768px) {
+  #app {
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .Judul {
+    font-size: 2rem;
+  }
+
+  .section-tugas, .layar2, .layar3, .layar4, .section-article, .section-cuaca {
+    width: 100% ;
+    height: auto ;
+  }
+
+  .layar3 {
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+
+  .input-tugas {
+    width: 46%;
+  }
+
+  .li {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+  }
+
+  .hapus-tugas {
+    top: 1px;
+  }
+
+  .hapus-catatan {
+    bottom: 13px;
+  }
+
+  .input-kota {
+    width: 65%;
+  }
+  
+  .daftar-list, .daftar-catatan {
+    max-height: 250px;
+  }
 }

@@ -52,6 +52,7 @@ export function apkCatatan() {
         simpanCatatanKeStorage(dataCatatan);
         renderCatatan();
         inputCatatan.value = "";
+        inputCatatan.focus();
     }
 
     function hapusCatatan(id) {
