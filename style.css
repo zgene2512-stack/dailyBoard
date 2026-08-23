@@ -1,91 +1,47 @@
-@keyframes muncul{
-    from{
-        opacity: 0;
-        transform: translateY(5px);
-    }
-    to{
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 *{
-    box-sizing: border-box;
-    scroll-behavior: smooth;
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 body{
-    background: #FAF9F6;
-}
-
-.dark-mode{
-    background: #0F172A;
+    background: url("aset/");
 }
 
 /* Header */
-
 .kepala{
     background: #F1F5F9;
+    text-align: center;
     width: 100%;
-    padding: 10px;
-    padding-top: 30px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding: 15px;
 
     position: relative;
-}
-
-.dark-mode .kepala{
-    background: #1E293B;
 }
 
 .Judul{
-    color: #0F172A;
-    margin-bottom: 3px;
-    font-family:  fantasy;
+    text-transform: uppercase;
+    font-weight: 900;
     font-size: 3rem;
-}
-
-.dark-mode .Judul{
-    color: #F8FAFC;
-}
-
-.kutipan-harian{
-    font-style: italic;
-    margin-bottom: 10px;
-    background: lightcyan;
-    padding: 5px;
-    border-radius: 12px;
-    width: 70%;
-    text-align: center;
-}
-
-.dark-mode .kutipan-harian{
-    background: #94A3B8;
+    color: #0F172A;
 }
 
 .toggle-tema{
+    border-radius: 15px;
+    padding: 5px;
+    background: darkgray;
+
     position: absolute;
-    top: 10px;
-    right: 20px;
-    padding: 2px 10px;
-
-    font-weight: bold;
-    border-radius: 10px;
+    right: 5px;
+    top: 5px;
 }
 
-
-/* Tugas */
-.section-tugas{
-    padding: 10px;
-
-    position: relative;
+.toggle-tema .gambar-toggle{
+    padding: 0 3px;
+    width: 20px;
+    height: auto;
 }
+
+/* Masuk Utama */
 
 .judul{
     text-align: center;
@@ -95,6 +51,20 @@ body{
     color: #0F172A ;
 }
 
+#app{
+    display: flex;
+    position: relative;
+}
+
+.section-tugas{
+    padding: 10px;
+    width: 50%;
+    height: 78vh;
+    border: 2px solid darkgray;
+
+    position: relative;
+}
+
 .article-cari{
     margin: 10px 0 20px 0;
     display: flex;
@@ -102,18 +72,12 @@ body{
 }
 
 .cari-tugas{
+    text-align: center;
     width: 80%;
     height: 35px;
     border-radius: 12px;
     padding: 0 5px;
 }
-
-.dark-mode .cari-tugas{
-    background: #1E293B;
-    border: 1px solid #475569;
-    color: white;
-}
-
 
 .input-tugas{
     width: 45%;
@@ -121,12 +85,6 @@ body{
     border-radius: 12px;
     height: 28px;
     padding: 0 5px;
-}
-
-.dark-mode .input-tugas{
-    background: #1E293B;
-    border: 1px solid #475569;
-    color: white;
 }
 
 .tambah-tugas{
@@ -151,15 +109,17 @@ body{
 .daftar-list{
     display: flex;
     justify-content: center;
-    align-items: center;
 
     padding: 10px;
     padding-bottom: 15px;
+
+    height: 300px;
+    overflow-y: auto;
 }
 
 .list-tugas{
     list-style: none;
-    width: 45%;
+    width: 95%;
 }
 
 .li{
@@ -168,18 +128,13 @@ body{
     padding: 10px;
     border-radius: 9px;
     border: 3px solid gray;
-    animation: 3s muncul forwards;
     position: relative;
-
-    transition: 0.3s;
 }
 
 .move{
     background: gray;
     transform: scale(1.03);
 }
-
-
 
 .hapus-tugas{
     position: absolute;
@@ -198,31 +153,33 @@ body{
     display: none;
 }
 
-/* Catatan */
+/* Kutipan */
+
+.layar2{
+    width: 50%;
+    height: 78vh;
+}
+
+.layar4{
+    height: 60%;
+} 
+
 .section-catatan{
     padding: 10px;
-    padding-bottom: 15px;
-    
+    border: 1px solid darkgray;
     position: relative;
+    height: 100%;
 }
 
 
 .input-catatan {
     padding: 5px;
-    border: 1px solid black;
-    width: 50%;
-    height: 45px;
+    width: 80%;
+    height: 40px;
     border-radius: 10px;
     margin-bottom: 15px;
     margin-right: 5px;
 }
-
-.dark-mode .input-catatan{
-    background: #1E293B;
-    border: 1px solid #475569;
-    color: white;
-}
-
 
 .tambah-catatan {
     position: absolute;
@@ -238,7 +195,8 @@ body{
 }
 
 .daftar-catatan {
-    margin-bottom: 15px;
+    height: 148px;
+    overflow-y: auto;
 }
 
 .catatan-item {
@@ -247,7 +205,6 @@ body{
     padding: 5px;
     padding-left: 10px;
     border-radius: 12px;
-    border: 1px solid black;
 
     position: relative;
 }
@@ -255,19 +212,53 @@ body{
 .hapus-catatan {
     position: absolute;
     right: 10px;
-    top: 15px;
+    bottom: 5px;
     padding: 3px 5px;
 }
 
-/* Cuaca */
-.section-cuaca{
-    padding: 10px;
-    padding-bottom: 15px;
-    text-align: center;
+
+/* Widget */
+
+.layar3{
+    height: 40%;
+    display: flex;
 }
 
-.label-cuaca{
-    font-weight: bolder;
+/* Kutipan */
+
+.section-article{
+    border: 2px solid darkgray;
+    width: 50%;
+    height: 100%;
+    padding: 10px;
+    text-align: center;
+    overflow-y: auto;
+
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.kutipan-harian{
+    background: rgba(125, 125, 125, 0.3);
+    border-left: 3px solid skyblue;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.refresh-btn{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+/* Cuaca */
+
+.section-cuaca{
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid darkgray;
 }
 
 .input-kota{
@@ -277,13 +268,6 @@ body{
     width: 230px;
     margin-bottom: 10px;
 }
-
-.dark-mode .input-kota{
-    background: #1E293B;
-    border: 1px solid #475569;
-    color: white;
-}
-
 
 .tombol-cuaca{
     padding: 0 19px;
@@ -298,39 +282,80 @@ body{
 .info-article{
     display: flex;
     justify-content: center;
-    align-items:center;
 }
 
 .info-cuaca{
     background: rgba(125, 125, 125, 0.3);
-    padding: 20px 0;
+    padding: 10px 0;
     backdrop-filter: blur(8px);
     border: 1px solid #E2E8F0;
-    width: 45%;
+    width: 100%;
     border-radius: 12px;
-    min-height: 240px;
+    text-align: center;
 }
 
-.dark-mode .info-cuaca{
-    background: #1E293B;
-}
 
 .ikon-cuaca{
-    width: 150px;
+    width: 50px;
 }
 
 footer{
     background: black;
     color: white;
-    height: 50px;
+    height: 30px;
 
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Dark Mode */
+/* dark mmode */
+
+.dark-mode{
+    background: #0F172A;
+}
+
+.dark-mode .kepala{
+    background: #1E293B;
+}
+
+.dark-mode .Judul{
+    color: #F8FAFC;
+}
 
 .dark-mode .judul{
     color: #94A3B8;
+}
+
+.dark-mode .cari-tugas{
+    background: #1E293B;
+    border: 1px solid #475569;
+    color: white;
+}
+
+.dark-mode .input-tugas{
+    background: #1E293B;
+    border: 1px solid #475569;
+    color: white;
+}
+
+/* dark mode catatan */
+
+
+.dark-mode .input-catatan{
+    background: #1E293B;
+    border: 1px solid #475569;
+    color: white;
+}
+
+/* dark mode cuaca */
+
+.dark-mode .input-kota{
+    background: #1E293B;
+    border: 1px solid #475569;
+    color: white;
+}
+
+.dark-mode .info-cuaca{
+    background: #1E293B;
 }

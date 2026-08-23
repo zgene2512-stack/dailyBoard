@@ -31,7 +31,7 @@ export function toDoList() {
     ];
 
     // FIX 1: Cari ID tertinggi biar ID item baru gak bakal bentrok
-    let nextId = daftarTugas.length > 0 ? Math.max(...daftarTugas.map(t => t.id)) + 1 : 1;
+    let nextId = daftarTugas.length;
     let wadahPindah = null;
 
     // Elemen DOM
@@ -82,18 +82,17 @@ export function toDoList() {
     // Event Listeners
     const cariTugasDebounced = debounce((kataKunci) => {
         const apapun = daftar.querySelectorAll("li");
-        apapun.forEach(listTugas => {
-            const span = listTugas.querySelector(".span-nama");
-            if (span) {
-                const teks = span.textContent.toLowerCase();
-                if (teks.includes(kataKunci)) {
-                    listTugas.classList.remove("hide");
-                } else {
-                    listTugas.classList.add("hide");
-                }
+        apapun.forEach((listTugas) => {
+            console.log(listTugas)
+            const teks = listTugas.firstChild.textContent.toLowerCase();
+            if (teks.includes(kataKunci)) {
+                listTugas.classList.remove("hide");
+            } else {
+                listTugas.classList.add("hide");
             }
-        });
-    }, 1500);
+        }
+        );
+    }, 1000);
 
 
     inpCari.addEventListener("input", (e) => {
@@ -177,7 +176,7 @@ export function toDoList() {
 
             li.addEventListener("dblclick", () => {
                 const tugasAnyar = prompt("Masukkan nama tugas:", listTugas.nama);
-                if (tugasAnyar && validasiInput(tugasAnyar)) {
+                if (validasiInput(tugasAnyar)) {
                     editTugas(listTugas.id, tugasAnyar);
                 }
             });
@@ -203,7 +202,7 @@ export function toDoList() {
         list.addEventListener("dragover", (e) => e.preventDefault());
         list.addEventListener("drop", (e) => {
             e.preventDefault();
-            
+
             const targetLi = e.target.closest("li");
             if (!targetLi) return;
 

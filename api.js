@@ -1,9 +1,56 @@
+//=================================================
+
+// Kutipan Harian
+async function ambilKutipan(kutipanText, kutipanAuthor) {
+    try {
+        const res = await fetch("https://motivational-spark-api.vercel.app/api/quotes/random");
+        const data = await res.json();
+        kutipanText.textContent = data.quote;
+        kutipanAuthor.textContent = "- " + data.author;
+        console.log(data);
+    } catch (error) {
+        console.log("Gagal mengambil kutipan:", error);
+    }
+}
+
+export function widgetKutipan() {
+    const sectionArticle = document.createElement("section");
+    sectionArticle.className = "section-article";
+
+    const kutipan = document.createElement("article");
+    kutipan.className = "kutipan-harian";
+
+    const kutipanText = document.createElement("p");
+    kutipanText.textContent = "Memuat kutipan...";
+    const kutipanAuthor = document.createElement("p");
+    kutipanAuthor.style.marginTop = "20px";
+    const refresh = document.createElement("button");
+    refresh.className = "refresh-btn";
+    refresh.textContent = "\u21BB";
+
+    kutipan.appendChild(kutipanText);
+    kutipan.appendChild(kutipanAuthor);
+    kutipan.appendChild(refresh);
+    sectionArticle.appendChild(kutipan)
+
+    refresh.addEventListener("click", () => {
+        refresh.classList.add("spin");
+        ambilKutipan(kutipanText, kutipanAuthor);
+        setTimeout(() => {
+            refresh.classList.remove("spin");
+        }, 2000);
+    })
+
+    ambilKutipan(kutipanText, kutipanAuthor);
+    return sectionArticle;
+}
+
 //==================================================
 
 async function ambilCuaca(kota, infoCuaca) {
     const apiKey = "18841e293493445a30cd12b4f150c108";
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${kota}&appid=${apiKey}&units=metric`;
-    
+
 
     try {
         const res = await fetch(url);
@@ -32,28 +79,20 @@ export function widgetCuaca() {
     const cuaca = document.createElement("section"); // Section Cuaca
     cuaca.className = "section-cuaca";
 
-    const subJudulCuaca = document.createElement("h2");
-    subJudulCuaca.textContent = "Cuaca";
-    subJudulCuaca.classList = "judul";
-
     const infoArc = document.createElement("article");
     infoArc.className = "info-article";
-    
-    const labelCuaca = document.createElement("label");
-    labelCuaca.textContent = "Kota: ";
-    labelCuaca.className = "label-cuaca";  
-    
+
     const inputKota = document.createElement("input");
     inputKota.placeholder = "Masukkan Nama Kota";
-    inputKota.className = "input-kota"; 
-    
+    inputKota.className = "input-kota";
+
     const tombolCuaca = document.createElement("button");
     tombolCuaca.textContent = "Cek";
-    tombolCuaca.className = "tombol-cuaca";   
-    
+    tombolCuaca.className = "tombol-cuaca";
+
     const info = document.createElement("div");
     info.textContent = "Memuat Info Cuaca...";
-    info.className = "info-cuaca";    
+    info.className = "info-cuaca";
 
     // Event Listener
     tombolCuaca.addEventListener("click", () => {
@@ -64,14 +103,12 @@ export function widgetCuaca() {
 
 
     //Menambahkan
-    cuaca.appendChild(subJudulCuaca);
-    cuaca.appendChild(labelCuaca);
     cuaca.appendChild(inputKota);
     cuaca.appendChild(tombolCuaca);
     cuaca.appendChild(infoArc)
     infoArc.appendChild(info);
 
-    //Kembali
+    //Balik Kampung
     ambilCuaca("Kyoto", info);
     return cuaca;
 };
