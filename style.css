@@ -424,5 +424,9 @@ footer{
   .tambah-catatan{
     top: 55px;
   }
+
+  .info-cuaca{
+    height: 148px;
+  }
 }
 
