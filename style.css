@@ -258,8 +258,9 @@ body{
 
 .refresh-btn{
     position: absolute;
-    bottom: 5px;
-    right: 5px;
+    bottom: 13px;
+    right: 13px;
+    border-radius: 50%;
     padding: 5px;
 }
 
