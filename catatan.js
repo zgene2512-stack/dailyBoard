@@ -27,7 +27,7 @@ export function apkCatatan() {
     inputCatatan.placeholder = "Masukkan catatan..."
 
     const tambahBtnCatatan = document.createElement("button");
-    tambahBtnCatatan.textContent = "Tambah Catatan";
+    tambahBtnCatatan.textContent = "Tambah";
     tambahBtnCatatan.className = "tambah-catatan";
 
     // Penambahan

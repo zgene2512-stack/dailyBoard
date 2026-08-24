@@ -87,7 +87,7 @@ export function widgetCuaca() {
     inputKota.className = "input-kota";
 
     const tombolCuaca = document.createElement("button");
-    tombolCuaca.textContent = "Cek";
+    tombolCuaca.textContent = "Sync";
     tombolCuaca.className = "tombol-cuaca";
 
     const info = document.createElement("div");

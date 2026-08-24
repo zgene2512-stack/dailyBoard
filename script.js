@@ -63,5 +63,5 @@ app.appendChild(layar2);
 layar3.appendChild(iniKutipan);
 layar3.appendChild(apkWidgetCuaca);
 layar4.appendChild(catatan);
-layar2.appendChild(layar3)
 layar2.appendChild(layar4);
+layar2.appendChild(layar3)

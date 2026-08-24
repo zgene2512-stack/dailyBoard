@@ -51,13 +51,16 @@ export function toDoList() {
     input.className = "input-tugas";
 
     const tambahBtn = document.createElement("button");
-    tambahBtn.textContent = "Tambah Tugas";
+    tambahBtn.textContent = "Tambah";
     tambahBtn.className = "tambah-tugas";
 
     // Filter
     const filter = document.createElement("select");
     filter.className = "filter";
 
+    const filterStatus = document.createElement("option");
+    filterStatus.textContent = "Status";
+    
     const filterSemua = document.createElement("option");
     filterSemua.textContent = "Semua";
     filterSemua.value = "semua";
@@ -68,6 +71,8 @@ export function toDoList() {
     filterBelum.textContent = "Belum";
     filterBelum.value = "belum";
 
+    filter.appendChild(filterStatus);
+    filterStatus.classList.add("hide");
     filter.appendChild(filterSemua);
     filter.appendChild(filterSudah);
     filter.appendChild(filterBelum);
