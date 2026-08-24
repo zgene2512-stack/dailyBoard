@@ -33,6 +33,8 @@ export function widgetKutipan() {
     kutipan.appendChild(refresh);
     sectionArticle.appendChild(kutipan)
 
+    refresh.addEventListener("click", () => ambilKutipan(kutipanText, kutipanAuthor))
+
     ambilKutipan(kutipanText, kutipanAuthor);
     return sectionArticle;
 }

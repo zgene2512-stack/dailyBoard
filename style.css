@@ -258,8 +258,9 @@ body{
 
 .refresh-btn{
     position: absolute;
-    top: 5px;
+    bottom: 5px;
     right: 5px;
+    padding: 5px;
 }
 
 /* Cuaca */
